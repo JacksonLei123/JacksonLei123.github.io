@@ -213,7 +213,6 @@ function generateRandomGameBoard(){
     
             if(categoryArray.length != 0){
                 if (!replacementArray.includes(clues[i].category_id)){
-                    // check if categoryArray[randomNumber] already exists in replacementArray
                     replacementArray.push(clues[i].category_id);
                     replacementArray2.push(clues[i]);
                     console.log(clues[i].category_id);
