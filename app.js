@@ -2,6 +2,7 @@ var buttonClick
 
 window.onload = function() {
     var container = document.getElementById("grid-container");
+    console.log("updated Version");
     
     // categories:
     for (var i=0; i<6; i++) {
