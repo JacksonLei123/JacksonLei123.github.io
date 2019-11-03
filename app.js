@@ -2,7 +2,7 @@ var buttonClick
 
 window.onload = function() {
     var container = document.getElementById("grid-container");
-    console.log("okplease pt2");
+    console.log("CORS PROBLEM SOLUTION 1");
     
     // categories:
     for (var i=0; i<6; i++) {
