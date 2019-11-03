@@ -185,7 +185,6 @@ function saveFunction(i){
 var replacementArray;
 var replacementArray2;
 function generateRandomGameBoard(){
-    // document.getElementById("loading").insertAdjacentHTML('beforeend', '<p>loading</p>');
     var colorer = document.getElementsByClassName('button grid-item');
 
     var i = 0;
