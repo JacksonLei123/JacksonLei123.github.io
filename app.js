@@ -2,7 +2,7 @@ var buttonClick
 
 window.onload = function() {
     var container = document.getElementById("grid-container");
-    console.log("okplease");
+    console.log("okplease pt2");
     
     // categories:
     for (var i=0; i<6; i++) {
@@ -52,7 +52,7 @@ function searchQuestion(event){
         if(categoryid.length > 0 || category.length == 0){
             categoryID = categoryid;
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", "//jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&category=" + categoryID + "&value="+ difficulty, false );
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&category=" + categoryID + "&value="+ difficulty, false );
             xmlHttp.send(null);
             console.log(JSON.parse(xmlHttp.responseText));
 
@@ -95,7 +95,7 @@ function searchQuestion(event){
         
         for(j = 0; j < 1500; j++){
             var categoryFinder = new XMLHttpRequest();
-            categoryFinder.open("GET", "//jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&value="+ difficulty + "&offset="+j + "00" , false );
+            categoryFinder.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&value="+ difficulty + "&offset="+j + "00" , false );
             categoryFinder.send(null);
             var categoryFinderArray = JSON.parse(categoryFinder.responseText);
         
@@ -110,7 +110,7 @@ function searchQuestion(event){
                     
 
                     var xmlHttp = new XMLHttpRequest();
-                    xmlHttp.open("GET", "//jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&category=" + categoryID + "&value="+ difficulty, false );
+                    xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues?min_date=" +date+  "&max_date=" +date + "&category=" + categoryID + "&value="+ difficulty, false );
                     xmlHttp.send(null);
 
                     if(JSON.parse(xmlHttp.responseText).length == 0){
@@ -197,7 +197,7 @@ function generateRandomGameBoard(){
     var paginationCounter = 0;
     while (replacementArray.length < 6) {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "//jservice.io/api/random?count=100", false);
+        xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/random?count=100", false);
         xmlHttp.send(null);
         var clues = JSON.parse(xmlHttp.responseText);
         console.log(clues);
@@ -205,7 +205,7 @@ function generateRandomGameBoard(){
         for(var i = 0; i< clues.length; i++){
 
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", "//jservice.io/api/clues?category=" + clues[i].category_id + "&value=100", false);
+            xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues?category=" + clues[i].category_id + "&value=100", false);
             xmlHttp.send(null);
             var categoryArray = JSON.parse(xmlHttp.responseText);
             console.log(categoryArray);
@@ -257,7 +257,7 @@ function clickTest(clickedId) {
     var category_id0 = replacementArray2[clickedId[0]].category_id;
 
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "//jservice.io/api/clues?category=" + category_id0, false);
+    xmlHttp.open("GET", "https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues?category=" + category_id0, false);
     xmlHttp.send(null);
     var categoryArray = JSON.parse(xmlHttp.responseText);
     // console.log(categoryArray);
